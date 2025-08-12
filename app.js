@@ -13,10 +13,29 @@ function agregarAmigo(){
         alert("Por favor inserte un nombre");
     }else{
         //Actualizar el array de amigos
-        nombres.push(nuevoNombre);
+        amigos.push(nuevoNombre);
 
         //Limpiar el campo de entrada
         document.getElementById('amigo').value ='';
-                
+               
+        actualizarListaAmigos();
     }     
+}
+
+//Implementa una función para actualizar la lista de amigos
+function actualizarListaAmigos(){
+    //Obtener el elemento de la lista
+    let lista = document.getElementById('listaAmigos')
+
+    //Limpiar la lista existente
+    lista.innerHTML = "";
+
+    //Iterar sobre el arreglo
+    for (let i =0; i <= amigos.length -1; i++){        
+        let elemento = document.createElement('li');
+        elemento.textContent = amigos[i];
+        lista.appendChild(elemento);
+    }   
+    
+
 }
